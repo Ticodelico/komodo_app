@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KomodoApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <main class="">
+
+        <% if current_page?(new_user_session_path) ||  current_page?(new_user_registration_path) %>
+  <div  class="bg-gradient-to-r from-indigo-500 via-purple-500 to-purple-800  ">
+    <%= yield %>
+  </div>
+  <% else %>
+    <div  class="bg-white ">
+    <%= render 'shared/header' %>
+    <%= yield %>
+      </div>
+  <% end %>
+
+    </main>
+  </body>
+</html>

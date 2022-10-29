@@ -1,0 +1,52 @@
+  <header>
+     <nav
+        class="
+          flex flex-wrap
+          items-center
+          justify-between
+          w-full
+          py-4
+          md:py-0
+          px-4
+          text-lg text-gray-800
+bg-gradient-to-r from-indigo-500 via-indigo-700 to-purple-900 
+        "
+      >
+       <div> <%=link_to restaurants_path, class: "text-fuchsia-50 hover:text-fuchsia-400" do%>
+        <h1>Komodo</h1>
+        <% end %>
+        </div>
+       
+      <div class="hidden w-full md:flex md:items-center md:w-auto" id="menu">
+          <ul
+            class="
+              pt-4
+              text-base text-gray-700
+              md:flex
+              md:justify-between 
+              md:pt-0"
+          >
+           <% if user_signed_in? %>
+ <strong class="md:p-4 py-2 block hover:text-grey-white text-white"auto><%= current_user.email %></strong>
+    <li>
+  <%= link_to 'Admin', admin_root_path, class: "md:p-4 py-2 block hover:text-grey-white text-white"  %> |  </li>
+   <li>
+  <%= link_to 'Edit profile', edit_user_registration_path, class: "md:p-4 py-2 block hover:text-grey-white text-white"  %> |  </li>
+  <li>
+  <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "md:p-4 py-2 block hover:text-grey-white text-white"  %>
+      </li>
+<% else %>
+<li>
+  <%= link_to "Sign up", new_user_registration_path, class: "md:p-4 py-2 block hover:text-grey-white text-white"  %> 
+      </li>
+      <li>
+  <%= link_to "Login", new_user_session_path, class: "md:p-4 py-2 block hover:text-grey-white text-white"  %>
+    </li>
+<% end %>
+          </ul>
+        </div>
+    </nav>
+  </header>
+  
+
+
